@@ -15,8 +15,6 @@ describe "Core" do
       expect(page).to have_title("Wiki | Home")
     end
 
-
-  
   describe "Help page" do
 
     it "should have the content 'Help'" do
@@ -30,7 +28,6 @@ describe "Core" do
       expect(page).to have_title("Wiki | Help")
     end
 
-  
     describe "About page" do
 
     it "should have the content 'About Us'" do
@@ -42,5 +39,18 @@ describe "Core" do
     it "should have the title 'About Us'" do
       visit '/core/about'
       expect(page).to have_title("Wiki | About Us")
+  end
+  
+    describe "About page" do
+
+    it "should have the content 'Contact'" do
+      visit '/core/contact'
+      expect(page).to have_content('Contact')
+    end
+  end
+  
+    it "should have the title 'Contact'" do
+      visit '/core/contact'
+      expect(page).to have_title("Wiki | Contact")
   end
 end

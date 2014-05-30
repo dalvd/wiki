@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   get 'core/help'
   
-    get 'core/about'
+  get 'core/about'
+
+  get 'core/contact'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
