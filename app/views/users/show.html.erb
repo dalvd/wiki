@@ -8,4 +8,17 @@
       </h1>
     </section>
   </aside>
+	<div class="span8">
+    <% if @user.articles.any? %>
+      <h3>Articles (<%= @user.articles.count %>)</h3>
+        <ol class="articles">
+          <% @user.articles.each do |article| %>
+            <li>
+              <span class="content"><%= article.content %></span>
+            </li>
+          <% end %>
+        </ol>
+      <%= will_paginate @articles %>
+    <% end %>
+	</div>
 </div>

@@ -8,4 +8,9 @@ FactoryGirl.define do
       admin true
     end
   end
+
+    factory :article do
+    content "This is first demo article"
+    user
+  end
 end

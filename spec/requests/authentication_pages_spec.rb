@@ -42,6 +42,19 @@ describe "Authentication" do
 
         describe "for non-signed-in users" do
           let(:user) { FactoryGirl.create(:user) }
+		  
+		  describe "in the articles controller" do
+
+            describe "submitting to the create action" do
+              before { post articles_path }
+              specify { expect(response).to redirect_to(signin_path) }
+            end
+
+            describe "submitting to the destroy action" do
+              before { delete articles_path(FactoryGirl.create(:article)) }
+              specify { expect(response).to redirect_to(signin_path) }
+            end
+		  end
 
 		  describe "when attempting to visit a protected page" do
             before do
@@ -76,9 +89,11 @@ describe "Authentication" do
 				before { visit users_path }
 				it { should have_title('Sign in') }
 			end
-			
           end
+		  
+
         end
+	
 		
 		describe "as wrong user" do
           let(:user) { FactoryGirl.create(:user) }
